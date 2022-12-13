@@ -1,0 +1,26 @@
+<form #f="ngForm">
+  Title <input type="text" name="title" ngModel required #title="ngModel" />
+  <app-errors [errors]="title"></app-errors>
+  Genre
+  <input type="text" name="genre" ngModel #genre="ngModel" />
+  <app-errors [errors]="genre"></app-errors>
+  Public
+  <input type="text" name="public" ngModel minlength="4" #public="ngModel" />
+  <app-errors [errors]="public"></app-errors>
+  nbrShared
+  <input
+    type="text"
+    name="nbrshared"
+    ngModel
+    minlength="2"
+    pattern="[0-9]*"
+    #nbrshared="ngModel"
+  />
+  <app-errors [errors]="nbrshared"></app-errors>
+  <input
+    type="submit"
+    value="Add product"
+    [disabled]="f.invalid"
+    (click)="addP(f.value)"
+  />
+</form>
